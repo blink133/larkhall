@@ -1,11 +1,11 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Le Flask running on %s:%s" % ( os.environ['IP'], os.environ['PORT'])
+    return render_template('master.html')
 
 if __name__ == "__main__":
     app.run(host=os.environ['IP'], port=os.environ['PORT'])
